@@ -34,6 +34,16 @@
             height: 100%;
         }
 
+        .blog-items_image {
+            width: 300px;
+            height: 200px;
+        }
+
+        .blog-items_image img {
+            width: 100%;
+            height: 100%;
+        }
+
         .nav-right {
             justify-content: flex-end;
         }
@@ -71,47 +81,40 @@
                     <div class="navbar-nav">
                         <a class="nav-link" href="#">Twitter</a>
                         <a class="nav-link" href="#">Resume</a>
-                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link active" href="#">Blog</a>
                     </div>
                 </div>
             </div>
         </nav>
+
     </header>
 
     <main>
-
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Hi, I am Moonsur</h1>
-                    <p class="lead text-muted">Hey, I am al moonsur. I like to develop django website, I aslo take
-                        request to develop django website from people. </p>
-                    <p>
-                        <a href="mailto:monsu.domtech@gmail.com" class="btn btn-primary my-2">Mail Me!</a>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-                    {% for job in jobs.all %}
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img class="job-img" src="{{ job.image.url }}" alt="Job image">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    {{ job.summery }}
-                                </p>
-                            </div>
-                        </div>
+        <div class="container">
+            <h1 class="text-center pt-3">Welcome to Moonsur's Blog</h1>
+            <br><br>
+            <h2>Latest Post</h2>
+            <hr>
+            <div class="blogs">
+                {% for blog in blogs.all %}
+                <div class="blog-items">
+                    <div class="blog-items_title">
+                        <a href="{{ blog.id }}">
+                            <h3>{{blog.title}}</h3>
+                        </a>
                     </div>
-                    {% endfor %}
-
+                    <div class="blog-items_pub-time">
+                        {{blog.pub_date_short}}
+                    </div>
+                    <div class="blog-items_image">
+                        <img class="img-fluid" src="{{blog.image.url }}" alt="Blog image">
+                    </div>
+                    <div class="blog-items_content">
+                        {{blog.summery}}
+                    </div>
                 </div>
+                <br>
+                {% endfor %}
             </div>
         </div>
 
