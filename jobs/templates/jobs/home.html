@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -70,7 +71,7 @@
                 <div class="collapse navbar-collapse nav-right" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" href="#">Twitter</a>
-                        <a class="nav-link" href="#">Resume</a>
+                        <a class="nav-link" target="_blank" href="{% static 'Al-moonsur CV.pdf' %}">Resume</a>
                         <a class="nav-link" href="#">Blog</a>
                     </div>
                 </div>
@@ -89,6 +90,7 @@
                     <p>
                         <a href="mailto:monsu.domtech@gmail.com" class="btn btn-primary my-2">Mail Me!</a>
                     </p>
+                    <img src="{% static 'Moonsur_photo.jpg' %}" alt="My picture" width="300px">
                 </div>
             </div>
         </section>
