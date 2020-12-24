@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -35,13 +36,13 @@
         }
 
         .blog-items_image {
-            width: 300px;
-            height: 200px;
-        }
-
-        .blog-items_image img {
             width: 100%;
             height: 100%;
+        }
+
+        .blog-items_image img {            
+            width: 100vw;
+            height: 100vh;
         }
 
         .nav-right {
@@ -71,7 +72,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Al Moonsur</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Al Moonsur</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -80,8 +81,8 @@
                 <div class="collapse navbar-collapse nav-right" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" href="#">Twitter</a>
-                        <a class="nav-link" href="#">Resume</a>
-                        <a class="nav-link active" href="#">Blog</a>
+                        <a class="nav-link" target='_blank' href="{% static 'Al-moonsur CV.pdf' %}">Resume</a>
+                        <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                     </div>
                 </div>
             </div>
@@ -90,24 +91,19 @@
     </header>
 
     <main>
-        <div class="container">
-            <h1 class="text-center pt-3">Welcome to Moonsur's Blog</h1>
-            <br><br>
-            <h2>Blog Details</h2>
-            <hr>
+        <div class="container">           
+            <br><br>            
             <div class="blogs">
 
                 <div class="blog-items">
-                    <div class="blog-items_title">
-                        <h3>{{detail_blog.title}}</h3>
-                    </div>
-                    <div class="blog-items_pub-time">
-                        {{detail_blog.pub_date_short}}
+                    <h1 class="text-center pt-3">{{detail_blog.title}}</h1>                    
+                    <div class="blog-items_pub-time text-center pb-2">
+                        {{detail_blog.pub_date}}
                     </div>
                     <div class="blog-items_image">
                         <img class="img-fluid" src="{{detail_blog.image.url }}" alt="Blog image">
                     </div>
-                    <div class="blog-items_content">
+                    <div class="blog-items_content pt-1">
                         {{detail_blog.body}}
                     </div>
                 </div>

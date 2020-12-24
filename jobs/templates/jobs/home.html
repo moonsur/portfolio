@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Album example · Bootstrap v5.0</title>
+    <title>Al moonsur</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
@@ -62,7 +62,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Al Moonsur</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Al Moonsur</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link" href="#">Twitter</a>
                         <a class="nav-link" target="_blank" href="{% static 'Al-moonsur CV.pdf' %}">Resume</a>
-                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
                     </div>
                 </div>
             </div>
